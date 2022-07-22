@@ -1,0 +1,7 @@
+Change Log
+==========
+
+0.0.1 (23.07.2022)
+-------------------
+-First Release:
+    +Includes few improvements and regularization option
