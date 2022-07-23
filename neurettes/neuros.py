@@ -36,9 +36,11 @@ def sigmoid(Z):
     """
     
     A = 1/(1 + np.exp(-Z))
-    activation_cache = (A, Z)
+    activation_cache = list([A, Z])
 
     return A, activation_cache
+
+
 
 def sigmoid_derivative(dA, activation_cache):
     """compute the derivative of the activation
@@ -66,9 +68,11 @@ def relu(Z):
     :rtype: np.array(size of previous layer, num of examples)
     """
 
-    A = max(0.0, Z)
+    A = max(Z, 0)
 
     return A, Z
+
+relu = np.vectorize(relu)
 
 def relu_derivative(dA, activation_cache):
     """compute the derivative of the activation
@@ -101,7 +105,7 @@ def linear_step(A, W, b):
     :rtype: np.array(size of current layer), tuple(A, W, b)
     """
 
-    Z = np.dot(A, W) + b
+    Z = np.dot(W, A) + b
     linear_cache = (A, W, b)
 
     return Z, linear_cache
@@ -186,7 +190,8 @@ def compute_cost(lastA, Y):
     :rtype: float32
     """
 
-    m = Y.shape[1]
+    m = np.shape(Y)[0]
+    print(m)
     cost = (-1/m) * (np.dot(Y, np.transpose(np.log(lastA)) + np.dot((1-Y), np.transpose(np.log(1-lastA)))))
     cost = np.squeeze(cost)
 
@@ -494,4 +499,3 @@ def predict(parameters, X, Y, print_accuracy=False):
         print(accuracy)
     
     return accuracy
-
