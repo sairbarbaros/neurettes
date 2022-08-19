@@ -350,7 +350,7 @@ def predict(parameters, X, Y, print_accuracy=False):
     :rtype: float
     """
 
-    y_hat, _, _ = forward_model(X, parameters)
+    y_hat, _= forward_model(X, parameters)
     m = y_hat.shape[1]
     counter = 0
     subs = np.subtract(y_hat, Y)
