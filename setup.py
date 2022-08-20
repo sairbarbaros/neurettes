@@ -10,7 +10,7 @@ classifiers = [
 
 setup(
     name='neurettes',
-    version='0.0.3',
+    version='0.0.4',
     description='a library for building neural networks',
     long_description=open('README.txt').read() + '\n\n' + open('CHANGELOG.txt').read(),
     url='',
@@ -21,6 +21,6 @@ setup(
     classifiers=classifiers,
     keywords='neural networks',
     packages=find_packages(),
-    install_requires=['']
+    install_requires=['numpy']
 
 )
