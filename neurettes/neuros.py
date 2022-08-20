@@ -331,7 +331,7 @@ def train_model(X, Y, layer_dim, learning_rate=0.01, iteration=2000, print_cost=
         parameters = update_parameters(parameters, grads, learning_rate)
 
         if print_cost == True and i % 100 == 0:
-            print("Cost {}: {}".format(i, np.squeeze(cost)))
+            print("Cost {}: {}, Accuracy: {}".format(i, np.squeeze(cost), (1-cost)*100))
             costs.append(cost)
 
 
